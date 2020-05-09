@@ -133,7 +133,7 @@ def mask_model(x_train, model_path, model_defense_path):
                 result_max_label = -1
                 result_predict_scores = result_predict_scores_initial
                 while j < max_iteration and (max_label != result_max_label or (result_predict_scores - 0.5) * (
-                        result_predict_scores_initial - 0.1) > 0):
+                        result_predict_scores_initial - 0.5) > 0):
                     gradient_values = sess.run(gradient_targetlabel,
                                                feed_dict={model.input: sample_f, origin_value_placeholder: origin_value,
                                                           label_mask: label_mask_array, c3_placeholder: c3,
